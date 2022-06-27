@@ -21,3 +21,10 @@ $ `rubocop`
 
 Starts Search Script  
 $ `ruby bin/search_script.rb`
+
+
+# DO NOT FORK THIS REPO
+Clone it and send it back to me throught the same canal.
+
+Make your commits as clean as possible
+Don't forget to include `.git`
