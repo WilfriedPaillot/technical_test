@@ -15,14 +15,20 @@ class SearchScript
   private
 
   def welcome
-    p 'Welcome in our program'
-    p 'This amazing tool can search the web for you safely'
-    p 'Please tell us which site you choose'
+    puts  '╔════════════════════════════════════════════════════════════╗'
+    puts  '║                      Welcome in our program                ║'
+    puts  '║      This amazing tool can search the web for you safely   ║'
+    puts  '║              Please tell us which site you choose          ║'
+    puts  '╚════════════════════════════════════════════════════════════╝'
   end
 
   def ask_confirmation
-    p website_url
-    p 'Do you confirm the search ? (y/n)'
+    puts ''
+    puts "Searching for #{@query_input} on #{@site_input}..."
+    puts "(#{website_url})"
+    puts ''
+    puts 'Do you confirm the search ?'
+    print 'y/n > '
     confirmation_input = gets.chomp.match?(/[y|Y]/i)
     return if confirmation_input
 
@@ -42,14 +48,18 @@ class SearchScript
   end
 
   def ask_site
+    puts ''
     p 'Which site do you want to search ? (youtube, github, google, amazon)'
+    print '> '
     @site_input = gets.chomp
 
     validate_site_input(@site_input)
   end
 
   def ask_query
+    puts ''
     p 'What do you want to search ?'
+    print '> '
     @query_input = gets.chomp
 
     validate_query_input(@query_input)
