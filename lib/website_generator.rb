@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require 'launchy'
 
+# WebsiteGenerator class
 class WebsiteGenerator
   def initialize(name, query)
     @name = name
@@ -19,7 +22,7 @@ class WebsiteGenerator
   private
 
   # COMPLETE NEXT LINE
-  VALID_WEBSITES = %w[youtube github google amazon]
+  VALID_WEBSITES = %w[youtube github google amazon].freeze
 
   # FIX EACH URL
   YOUTUBE_URL = 'https://www.youtube.com/'
@@ -44,12 +47,12 @@ class WebsiteGenerator
   end
 
   def prefix
-    case @name
-      when 'youtube' then 'results?search_query='
-      when 'github' then 'search?q='
-      when 'google' then 'search?q='
-      when 'amazon' then 's?k='
-    end
+    {
+      'youtube' => 'results?search_query=',
+      'github' => 'search?q=',
+      'google' => 'search?q=',
+      'amazon' => 's?k='
+    }[@name]
   end
 
   def query_builder
