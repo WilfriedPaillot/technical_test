@@ -32,11 +32,15 @@ class WebsiteGenerator
   end
 
   def github
-    # TO COMPLETE
+    GITHUB_URL + query_builder
   end
 
   def google
-    # TO COMPLETE
+    GOOGLE_URL + query_builder
+  end
+
+  def amazon
+    AMAZON_URL + query_builder
   end
 
   def query_builder
