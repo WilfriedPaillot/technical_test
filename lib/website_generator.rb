@@ -22,10 +22,10 @@ class WebsiteGenerator
   VALID_WEBSITES = %w[youtube github google amazon]
 
   # FIX EACH URL
-  YOUTUBE_URL = 'https://www.youtube.com/'              # results?search_query=
-  GITHUB_URL = 'https://github.com/'                    # search?q=
-  GOOGLE_URL = 'https://www.google.com/'                # search?q=
-  AMAZON_URL = 'https://www.amazon.fr/'                 # s?k=
+  YOUTUBE_URL = 'https://www.youtube.com/'
+  GITHUB_URL = 'https://github.com/'
+  GOOGLE_URL = 'https://www.google.com/'
+  AMAZON_URL = 'https://www.amazon.fr/'
 
   def youtube
     YOUTUBE_URL + query_builder
@@ -43,9 +43,17 @@ class WebsiteGenerator
     AMAZON_URL + query_builder
   end
 
+  def prefix
+    case @name
+      when 'youtube' then 'results?search_query='
+      when 'github' then 'search?q='
+      when 'google' then 'search?q='
+      when 'amazon' then 's?k='
+    end
+  end
+
   def query_builder
-    # CHANGE NEXT LINE LOGIC
-    @query
+    prefix + @query.gsub(' ', '+')
   end
 
   def validate_name
