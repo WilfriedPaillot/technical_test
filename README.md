@@ -10,7 +10,7 @@ Browser Generator
 
 Clone this repository and navigate to the folder
 
-``` cd challenge_browser_generator ```
+``` cd challenge-browser_generator ```
   
 Then, you can use the following command:
   
