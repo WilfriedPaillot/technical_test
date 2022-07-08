@@ -35,7 +35,7 @@ class SearchScript
   end
 
   def website_generator
-    @website_generator ||= WebsiteGenerator.new(ask_site, ask_query)
+    @website_generator ||= WebsiteGenerator.new(@site_input, @query_input)
   end
 
   def ask_site
