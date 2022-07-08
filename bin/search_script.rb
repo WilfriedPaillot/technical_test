@@ -42,7 +42,8 @@ class SearchScript
 
   def ask_site
     # TO COMPLETE
-    #
+    p 'Which site do you want to search ? (youtube, github, google, amazon)'
+    site_input = gets.chomp
 
     # DECLARE VARIABLE BEFORE SO CONDITION WORKS
     validate_site_input(site_input)
@@ -50,7 +51,8 @@ class SearchScript
 
   def ask_query
     # TO COMPLETE
-    #
+    p 'What do you want to search ?'
+    query_input = gets.chomp
 
     # DECLARE VARIABLE BEFORE SO CONDITION WORKS
     validate_query_input(query_input)
