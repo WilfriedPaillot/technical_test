@@ -21,7 +21,7 @@ class SearchScript
     p website_url
     p 'Do you confirm the search ?'
     # TO COMPLETE
-
+    confirmation_input = gets.match(/[y|Y]/i)
     # DECLARE VARIABLE BEFORE SO CONDITION WORKS
     return if confirmation_input
 
