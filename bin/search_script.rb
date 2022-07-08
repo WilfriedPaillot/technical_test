@@ -59,11 +59,9 @@ class SearchScript
   end
 
   def validate_site_input(input)
-    # CHANGE NEXT LINE CONDITION (ex: uniq word, length max min)
-    return if true
+    return if input == 'youtube' || input == 'github' || input == 'google' || input == 'amazon'
 
-    # CHANGE NEXT LINE MESSAGE TO GIVE MORE INFORMATION ABOUT WRONG INPUT
-    error(message: "quel méchant site input")
+    error(message: "Invalid input, please enter a site name listed above")
   end
 
   def error(message: '')
