@@ -39,12 +39,10 @@ class SearchScript
   end
 
   def ask_site
-    # TO COMPLETE
     p 'Which site do you want to search ? (youtube, github, google, amazon)'
-    site_input = gets.chomp
+    @site_input = gets.chomp
 
-    # DECLARE VARIABLE BEFORE SO CONDITION WORKS
-    validate_site_input(site_input)
+    validate_site_input(@site_input)
   end
 
   def ask_query
