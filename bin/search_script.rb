@@ -46,12 +46,10 @@ class SearchScript
   end
 
   def ask_query
-    # TO COMPLETE
     p 'What do you want to search ?'
-    query_input = gets.chomp
+    @query_input = gets.chomp
 
-    # DECLARE VARIABLE BEFORE SO CONDITION WORKS
-    validate_query_input(query_input)
+    validate_query_input(@query_input)
   end
 
   def validate_query_input(input)
