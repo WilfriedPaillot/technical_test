@@ -19,7 +19,7 @@ class WebsiteGenerator
   private
 
   # COMPLETE NEXT LINE
-  VALID_WEBSITES = %w[github google amazon]
+  VALID_WEBSITES = %w[youtube github google amazon]
 
   # FIX EACH URL
   YOUTUBE_URL = 'https://www.youtube.com/results?search_query=lol+bonjour'
