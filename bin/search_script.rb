@@ -19,10 +19,8 @@ class SearchScript
 
   def ask_confirmation
     p website_url
-    p 'Do you confirm the search ?'
-    # TO COMPLETE
-    confirmation_input = gets.match(/[y|Y]/i)
-    # DECLARE VARIABLE BEFORE SO CONDITION WORKS
+    p 'Do you confirm the search ? (y/n)'
+    confirmation_input = gets.chomp.match?(/[y|Y]/i)
     return if confirmation_input
 
     error(message: 'You did not confirm search')
