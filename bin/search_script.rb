@@ -53,11 +53,9 @@ class SearchScript
   end
 
   def validate_query_input(input)
-    # CHANGE NEXT LINE CONDITION (ex: length max / min)
-    return if true
+    return if input.length > 0
 
-    # CHANGE NEXT LINE MESSAGE TO GIVE MORE INFORMATION ABOUT WRONG INPUT
-    error(message: "quel méchant query input")
+    error(message: "Invalid input, please enter a query")
   end
 
   def validate_site_input(input)
