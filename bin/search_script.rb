@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require_relative '../lib/website_generator'
 
+# SearchScript class
 class SearchScript
   def initialize
     welcome
@@ -53,15 +56,15 @@ class SearchScript
   end
 
   def validate_query_input(input)
-    return if input.length > 0
+    return if input.length.positive?
 
-    error(message: "Invalid input, please enter a query")
+    error(message: 'Invalid input, please enter a query')
   end
 
   def validate_site_input(input)
-    return if input == 'youtube' || input == 'github' || input == 'google' || input == 'amazon'
+    return if %w[youtube github google amazon].include?(input)
 
-    error(message: "Invalid input, please enter a site name listed above")
+    error(message: 'Invalid input, please enter a site name listed above')
   end
 
   def error(message: '')
