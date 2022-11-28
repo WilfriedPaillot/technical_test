@@ -4,6 +4,8 @@ require 'launchy'
 
 # WebsiteGenerator class
 class WebsiteGenerator
+  attr_accessor :name, :query
+
   def initialize(name, query)
     @name = name
     validate_name
@@ -12,11 +14,11 @@ class WebsiteGenerator
   end
 
   def url
-    send(@name)
+    send name
   end
 
   def open
-    Launchy.open send(@name)
+    Launchy.open send name
   end
 
   private
@@ -52,21 +54,21 @@ class WebsiteGenerator
       'github' => 'search?q=',
       'google' => 'search?q=',
       'amazon' => 's?k='
-    }[@name]
+    }[name]
   end
 
   def query_builder
-    prefix + @query.gsub(' ', '+')
+    prefix + query.gsub(' ', '+')
   end
 
   def validate_name
-    return if VALID_WEBSITES.include? @name
+    return if VALID_WEBSITES.include? name
 
     raise StandardError, 'invalid website'
   end
 
   def validate_query
-    return if @query.is_a? String
+    return if query.is_a? String
 
     raise StandardError, 'invalid query'
   end

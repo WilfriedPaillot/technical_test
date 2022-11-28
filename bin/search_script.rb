@@ -44,35 +44,41 @@ class SearchScript
   end
 
   def website_generator
-    @website_generator ||= WebsiteGenerator.new(@site_input, @query_input)
+    @website_generator ||= WebsiteGenerator.new(ask_site, ask_query)
   end
 
   def ask_site
-    puts ''
-    p 'Which site do you want to search ? (youtube, github, google, amazon)'
-    print '> '
-    @site_input = gets.chomp
+    @ask_site ||=
+      begin
+        puts ''
+        p 'Which site do you want to search ? (youtube, github, google, amazon)'
+        print '> '
+        site_input = gets.chomp
 
-    validate_site_input(@site_input)
+        validate_site_input(site_input)
+      end
   end
 
   def ask_query
-    puts ''
-    p 'What do you want to search ?'
-    print '> '
-    @query_input = gets.chomp
+    @ask_query ||=
+      begin
+        puts ''
+        p 'What do you want to search ?'
+        print '> '
+        query_input = gets.chomp
 
-    validate_query_input(@query_input)
+        validate_query_input(query_input)
+      end
   end
 
   def validate_query_input(input)
-    return if input.length.positive?
+    return input if input.length.positive?
 
     error(message: 'Invalid input, please enter a query')
   end
 
   def validate_site_input(input)
-    return if %w[youtube github google amazon].include?(input)
+    return input if %w[youtube github google amazon].include?(input)
 
     error(message: 'Invalid input, please enter a site name listed above')
   end
